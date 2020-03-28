@@ -4,6 +4,7 @@
   "description": "Sample repo to test comment conversion from tslint to eslint",
   "main": "index.ts",
   "scripts": {
+    "lint": "tslint --project tsconfig.json",
     "test": "test"
   },
   "keywords": [
