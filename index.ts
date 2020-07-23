@@ -22,3 +22,18 @@ export function interfaceFunction(): BadInterfaceName {
         value: 1000
     }
 }
+
+export function hashInt(x: number) {
+    // tslint:disable:no-bitwise
+    const HASH = new Uint32Array(1);
+    HASH[0] = x | 0;
+    HASH[0] -= HASH[0] << 6;
+    HASH[0] ^= HASH[0] >>> 17;
+    HASH[0] -= HASH[0] << 9;
+    HASH[0] ^= HASH[0] << 4;
+    HASH[0] -= HASH[0] << 3;
+    HASH[0] ^= HASH[0] << 10;
+    HASH[0] ^= HASH[0] >>> 15;
+    return HASH[0];
+    // tslint:enable
+  }
